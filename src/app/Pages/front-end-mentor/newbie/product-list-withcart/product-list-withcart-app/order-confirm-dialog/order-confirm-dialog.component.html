@@ -2,6 +2,8 @@
     <div class="order-confirmation__inner">
         <img [src]="imagesPath + 'assets/images/icon-order-confirmed.svg'" alt="">
 
+        <h3 class="order-confirmation__heading">Order Confirmed</h3>
+
         <p class="order-confirmation-tagline">We hope you enjoy your food !</p>
 
         <div class="order-confirmation__container">
@@ -10,7 +12,7 @@
                 @for (item of receivedCartList; track $index) {
                 <li class="order-confirmation__item">
 
-                    <div class="order-confirmation__container">
+                    <div class="order-confirmation__content">
                         <div class="order-confirmation__name"> {{item.name}} </div>
                         <div class="order-confirmation__details">
                             <div class="order-confirmation__qty">
