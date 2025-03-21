@@ -21,9 +21,28 @@ export class OrderConfirmDialogComponent {
 
 
   public get imagesPath(): string {
-    return  this.imagePath.getImagepath + '/01_product-list-with-cart-main/'
+    return this.imagePath.getImagepath + '/01_product-list-with-cart-main/'
+  }
+
+  getSum(): number {
+    var sum: number = 0;
+    this.receivedCartList.forEach((e) => {
+      sum = sum + (e.quantity * e.price)
+    });
+
+    return sum
+  }
+
+  closeDialog() {
+    this.ref.close();
+    this.receivedCartList.map((data) => {
+      data.quantity = 1,
+        data.isvisible = false
+    })
   }
 
 
 
 }
+
+

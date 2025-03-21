@@ -71,7 +71,6 @@ export class ProductListWithcartAppComponent {
 
   addItem(receivedItem: ProductDetail) {
     this.cartItems.push(receivedItem)
-    // this.sectionVisible = receivedItem.id;
     receivedItem.isvisible = true
     this.getSum()
   }
