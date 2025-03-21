@@ -1,0 +1,38 @@
+<div class="order-confirmation">
+    <div class="order-confirmation__inner">
+        <img [src]="imagesPath + 'assets/images/icon-order-confirmed.svg'" alt="">
+
+        <p class="order-confirmation-tagline">We hope you enjoy your food !</p>
+
+        <div class="order-confirmation__container">
+            <ul class="order-confirmation__list">
+
+                @for (item of receivedCartList; track $index) {
+                <li class="order-confirmation__item">
+
+                    <div class="order-confirmation__container">
+                        <div class="order-confirmation__name"> {{item.name}} </div>
+                        <div class="order-confirmation__details">
+                            <div class="order-confirmation__qty">
+                                {{item.quantity}}
+                            </div>
+                            <div class="order-confirmation__price">
+                                {{item.price}}
+                            </div>
+                        </div>
+                        <div class="order-confirmation__total">
+
+                        </div>
+                    </div>
+                </li>
+
+                }
+
+
+            </ul>
+        </div>
+        <button class="product-list-withcart-app__cart-confirm">
+            Start New Order
+        </button>
+    </div>
+</div>

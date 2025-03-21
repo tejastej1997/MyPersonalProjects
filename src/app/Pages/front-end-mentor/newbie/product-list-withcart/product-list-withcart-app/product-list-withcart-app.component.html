@@ -1,0 +1,101 @@
+<div class="product-list-withcart-app">
+    <div class="product-list-withcart-app__inner container">
+        <div class="product-list-withcart-app__container">
+            <h2 class="product-list-withcart-app__heading">
+                Desserts
+            </h2>
+
+            <ul class="product-list-withcart-app__content">
+                @for (item of itemList; track $index) {
+                <li class="product-list-withcart-app__item">
+                    <div class="product-list-withcart-app__media">
+                        <picture class="product-list-withcart-app__img">
+                            <source media="(max-width: 767px)" [srcset]="item.image.mobile">
+                            <source media="(max-width: 1024px)" [srcset]="item.image.tablet">
+                            <img [src]="item.image.desktop" [alt]='item.name'>
+                        </picture>
+                    </div>
+
+
+                    @if (item.isvisible) {
+                    <div class="product-list-withcart-app__function-btn">
+                        <button class="decrement" (click)="decrementItem(item.id)">
+                            <img [src]="imagesPath + 'assets/images/icon-decrement-quantity.svg'" alt="">
+                        </button>
+
+                        <span class="quantity"> {{item.quantity}} </span>
+                        <button class="increment" (click)="incrementItem(item.id)">
+                            <img [src]="imagesPath + 'assets/images/icon-increment-quantity.svg'" alt="">
+                        </button>
+                    </div>
+                    }
+                    @else {
+                    <button type="button" class="product-list-withcart-app__cartBtn" (click)="addItem(item)">
+                        <img [src]="imagesPath + 'assets/images/icon-add-to-cart.svg'" alt="add to cart icon">
+                        <span>Add to Cart</span>
+                    </button>
+                    }
+
+                    <div class="product-list-withcart-app__category"> {{item.category}} </div>
+                    <div class="product-list-withcart-app__name">{{item.name}} </div>
+                    <div class="product-list-withcart-app__price"> ${{ item.price}} </div>
+                </li>
+                }
+            </ul>
+
+        </div>
+
+        <div class="product-list-withcart-app__cart">
+            <h3 class="product-list-withcart-app__cart-name"> Your Cart ({{cartItems.length}}) </h3>
+            @if (cartItems.length > 0) {
+            <ul class="product-list-withcart-app__cart-list">
+                @for (item of cartItems; track $index) {
+                <li class="product-list-withcart-app__cart-item">
+                    <div class="product-list-withcart-app__cart-content">
+                        <div class="product-list-withcart-app__cart-dish">
+                            <span> {{item.name}} </span>
+                        </div>
+                        <div class="product-list-withcart-app__cart-details flex">
+                            <div class="product-list-withcart-app__cart-qty"> {{item.quantity + 'x'}} </div>
+                            <div class="product-list-withcart-app__cart-price"> {{ '@$'+ item.price}} </div>
+                            <div class="product-list-withcart-app__cart-total"> {{ '$' + item.price * item.quantity}}
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="product-list-withcart-app__cart-cancel" (click)="removeFromCart($index,item.id)">
+                        <img [src]="imagesPath + 'assets/images/icon-remove-item.svg'" alt="">
+                    </button>
+
+                </li>
+                }
+            </ul>
+
+
+            <div class="product-list-withcart-app__cart-total-bill">
+                <span>Order Total</span>
+                <span> {{getSum()}} </span>
+            </div>
+            <div class="product-list-withcart-app__cart-tagline">
+                <img [src]="imagesPath + 'assets/images/icon-carbon-neutral.svg'" alt="icon">
+                <span> This is a <b>carbon-neutral</b> delivery </span>
+            </div>
+
+            <button class="product-list-withcart-app__cart-confirm" (click)="openModal()">
+                Confirm Order
+            </button>
+            }
+
+            @else {
+
+            <div class="product-list-withcart-app__cart-empty-cart">
+                <img [src]="imagesPath + 'assets/images/illustration-empty-cart.svg'" alt="empty cart">
+                <span>Your added items will appear here</span>
+            </div>
+
+            }
+
+
+        </div>
+    </div>
+</div>

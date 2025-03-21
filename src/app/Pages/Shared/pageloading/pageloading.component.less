@@ -1,0 +1,44 @@
+.pageloading {
+    position: absolute;
+    inset: 0;
+    background: white;
+    z-index: 2000;
+
+
+    &__inner {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+
+    &__loader {
+        position: absolute;
+        width: 170px;
+        aspect-ratio: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 10px dotted #fe780f;
+        border-radius: 50%;
+        animation: spin 10s linear infinite;
+    }
+
+    &__text {
+        font-size: 22px;
+        font-weight: 700;
+        color: black;
+        max-width: 150px;
+        text-align: center;
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

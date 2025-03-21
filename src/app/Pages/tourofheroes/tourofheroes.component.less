@@ -1,0 +1,33 @@
+@import "./../../../styles.less";
+
+
+.tourofheroes {
+    &__inner {}
+
+    &__heading {
+        text-align: center;
+    }
+
+    &__path {
+        margin-top: 24px;
+        .flex-container();
+        gap: 24px;
+    }
+
+    &__link {
+        padding: 12px;
+        border-radius: 8px;
+        font-size: 22px;
+        color: #003092;
+        border: 1px solid #003092;
+        display: block;
+        transition: 0.25s all;
+
+        &:hover,
+        &:focus,
+        &.active {
+            background: #003092;
+            color: white;
+        }
+    }
+}

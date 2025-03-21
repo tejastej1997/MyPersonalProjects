@@ -1,0 +1,80 @@
+.page-not-found {
+    position: fixed;
+    inset: 0;
+    background: white;
+
+
+    &__inner {
+        padding: 24px;
+        height: 100%;
+    }
+
+    &__container {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 32px;
+    }
+
+    &__heading {
+        @media screen and (max-width: 767px) {
+            font-size: 20px;
+
+        }
+    }
+
+    &__image {
+        &-img {
+            width: 300px;
+            height: 300px;
+
+            @media screen and (max-width: 767px) {
+                width: 200px;
+                height: 200px;
+
+            }
+        }
+    }
+
+    &__item {
+        &:first-child {
+            text-align: center;
+            margin-bottom: 12px;
+        }
+    }
+
+    &__btn {
+        cursor: pointer;
+    }
+
+    &__footer {
+        display: flex;
+        gap: 24px;
+
+        @media screen and (max-width: 767px) {
+            flex-direction: column;
+            gap: 32px;
+        }
+    }
+
+    &__link {
+        padding: 12px 16px;
+        font-size: 24px;
+        background: black;
+        color: white;
+        border-radius: 8px;
+        transition: 0.25s all;
+
+        @media screen and (max-width: 767px) {
+            font-size: 16px;
+        }
+
+        &:hover,
+        &.sidearm-hover,
+        &:focus {
+            background: rgba(0, 0, 0, 0.7);
+        }
+    }
+}

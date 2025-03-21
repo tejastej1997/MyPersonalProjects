@@ -1,0 +1,32 @@
+.front-end-mentor {
+    &__inner {}
+
+    &__list {
+        display: flex;
+        gap: 32px;
+    }
+
+    &__item {
+        width: 25%;
+    }
+
+    &__link {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 12px;
+        font-size: 18px;
+        font-weight: 600;
+        background: #EB5B00;
+        color: white;
+        border-radius: 8px;
+        transition: 0.25s all;
+
+        &:hover,
+        &.sidearm-hover,
+        &:focus {
+            background: rgba(235, 91, 0, 0.8);
+        }
+
+    }
+}

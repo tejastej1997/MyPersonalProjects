@@ -1,0 +1,28 @@
+<nav class="main-navigation">
+    <div class="main-navigation__inner">
+        <ul class="main-navigation__list">
+            <li class="main-navigation__item">
+                <a class="main-navigation__link" routerLink="/" routerLinkActive="active"
+                    [routerLinkActiveOptions]="{ exact: true }">Home</a>
+            </li>
+            <li class="main-navigation__item">
+                <a class="main-navigation__link" routerLink="/tourofheroes" routerLinkActive="active">Tour of Heroes</a>
+            </li>
+            <li class="main-navigation__item">
+                <a class="main-navigation__link" routerLink="/employeeList" routerLinkActive="active">Employee List</a>
+            </li>
+            <li class="main-navigation__item">
+                <a class="main-navigation__link" routerLink="/frontendmentor" routerLinkActive="active">Frontend
+                    Mentor</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="page_routing">
+    <router-outlet class="router-outlet"></router-outlet>
+</div>
+
+<!-- @if (loading) {
+<app-pageloading />
+} -->

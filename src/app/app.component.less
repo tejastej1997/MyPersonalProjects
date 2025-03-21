@@ -1,0 +1,42 @@
+@import "./../styles.less";
+
+
+.main-navigation {
+    border-bottom: 1px solid #e0e0e0;
+    background: white;
+    position: fixed;
+    top: 0;
+    width: 100%;
+
+    &__inner {
+        max-width: 1488px;
+        margin: auto;
+        padding: 0 24px;
+
+    }
+
+    &__list {
+        .flex-container();
+        gap: 24px;
+    }
+
+    &__link {
+        display: block;
+        padding: 12px;
+        font-size: 18px;
+        font-weight: 600;
+        transition: 0.25s all;
+
+        &:hover,
+        &.active,
+        &:focus {
+            color: @trinidad;
+        }
+    }
+}
+
+.router-outlet {
+    margin-top: 49px;
+    display: block;
+    max-width: 1488px;
+}

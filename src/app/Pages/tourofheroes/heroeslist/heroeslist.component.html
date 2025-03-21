@@ -1,0 +1,17 @@
+<div class="hero-list">
+    <div class="hero-list__inner container">
+        <ul class="hero-list__item">
+            @for (hero of getHeroes; track hero.id) {
+            <li class="hero-list__link" (click)="selectHero(hero)" [class.selected]="selectedhero === hero">
+                <button type="button" class="hero-list__btn default-btn">
+                    <span> {{hero.id +')'}} </span>
+                    <span> {{hero.name | uppercase}} </span>
+                </button>
+            </li>}
+        </ul>
+
+        @if (selectedhero) {
+        <app-heroediting [getData]="selectedhero.name" />
+        }
+    </div>
+</div>
