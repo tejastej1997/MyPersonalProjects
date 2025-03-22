@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { DynamicDialogRef, DynamicDialogConfig } from 'primeng/dynamicdialog'
 import { ProductDetail } from '../../product-data';
 import { ImagesPathService } from '../../../../../Shared/images-path.service';
+import { GetProductDataService } from '../../get-product-data.service';
 
 
 @Component({
@@ -13,10 +14,10 @@ import { ImagesPathService } from '../../../../../Shared/images-path.service';
 })
 export class OrderConfirmDialogComponent {
 
-  receivedCartList: ProductDetail[] = [];
 
-  constructor(public ref: DynamicDialogRef, public config: DynamicDialogConfig, public imagePath: ImagesPathService) {
-    this.receivedCartList = config.data.itemData;
+
+  constructor(public ref: DynamicDialogRef, public config: DynamicDialogConfig, public imagePath: ImagesPathService, private cartData: GetProductDataService) {
+
   }
 
 
@@ -24,9 +25,15 @@ export class OrderConfirmDialogComponent {
     return this.imagePath.getImagepath + '/01_product-list-with-cart-main/'
   }
 
+
+  public get cartItems(): ProductDetail[] {
+    return this.cartData.cartItems
+  }
+
+
   getSum(): number {
     var sum: number = 0;
-    this.receivedCartList.forEach((e) => {
+    this.cartItems.forEach((e) => {
       sum = sum + (e.quantity * e.price)
     });
 
@@ -35,10 +42,11 @@ export class OrderConfirmDialogComponent {
 
   closeDialog() {
     this.ref.close();
-    this.receivedCartList.map((data) => {
+    this.cartData.getProductData().map((data) => {
       data.quantity = 1,
         data.isvisible = false
     })
+    this.cartItems.length = 0;
   }
 
 

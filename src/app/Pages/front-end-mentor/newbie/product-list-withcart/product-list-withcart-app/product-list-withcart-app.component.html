@@ -46,10 +46,10 @@
         </div>
 
         <div class="product-list-withcart-app__cart">
-            <h3 class="product-list-withcart-app__cart-name"> Your Cart ({{cartItems.length}}) </h3>
-            @if (cartItems.length > 0) {
+            <h3 class="product-list-withcart-app__cart-name"> Your Cart ({{getCartdata().length}}) </h3>
+            @if (getCartdata().length > 0 ) {
             <ul class="product-list-withcart-app__cart-list">
-                @for (item of cartItems; track $index) {
+                @for (item of getCartdata(); track $index) {
                 <li class="product-list-withcart-app__cart-item">
                     <div class="product-list-withcart-app__cart-content">
                         <div class="product-list-withcart-app__cart-dish">
