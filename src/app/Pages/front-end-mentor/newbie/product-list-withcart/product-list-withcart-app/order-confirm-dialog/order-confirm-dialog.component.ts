@@ -16,7 +16,7 @@ export class OrderConfirmDialogComponent {
 
 
 
-  constructor(public ref: DynamicDialogRef, public config: DynamicDialogConfig, public imagePath: ImagesPathService, private cartData: GetProductDataService) {
+  constructor(public ref: DynamicDialogRef, public config: DynamicDialogConfig, public imagePath: ImagesPathService, private getProductdata: GetProductDataService) {
 
   }
 
@@ -27,7 +27,7 @@ export class OrderConfirmDialogComponent {
 
 
   public get cartItems(): ProductDetail[] {
-    return this.cartData.cartItems
+    return this.getProductdata.cartItems
   }
 
 
@@ -42,7 +42,7 @@ export class OrderConfirmDialogComponent {
 
   closeDialog() {
     this.ref.close();
-    this.cartData.getProductData().map((data) => {
+    this.getProductdata.getProductData().map((data) => {
       data.quantity = 1,
         data.isvisible = false
     })
