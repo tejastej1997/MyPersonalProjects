@@ -9,7 +9,6 @@ import { NewbieComponent } from './Pages/front-end-mentor/newbie/newbie.componen
 import { ForTestingComponent } from './Pages/front-end-mentor/newbie/for-testing/for-testing.component';
 import { ProductListWithcartComponent } from './Pages/front-end-mentor/newbie/product-list-withcart/product-list-withcart.component';
 import { ProductListWithcartAppComponent } from './Pages/front-end-mentor/newbie/product-list-withcart/product-list-withcart-app/product-list-withcart-app.component';
-import { HoverComponent } from './Pages/hover/hover.component';
 
 
 
@@ -31,7 +30,7 @@ export const routes: Routes = [
     // { path: 'fortesting', component: ForTestingComponent,pathMatch:'full' },
     { path: 'productlist', component: ProductListWithcartComponent },
     { path: 'productlistwithcart', component: ProductListWithcartAppComponent },
-    { path: "hover", component: HoverComponent },
+   
 
     { path: '**', component: PageNotFoundComponent },
 ];
