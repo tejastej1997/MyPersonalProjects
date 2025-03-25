@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { HeroserviceService } from '../heroservice.service';
+import { Hero } from '../hero';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,5 +10,14 @@ import { Component } from '@angular/core';
   styleUrl: './dashboard.component.less'
 })
 export class DashboardComponent {
+
+  constructor(private heroesList: HeroserviceService) {
+    this.topHeroes = heroesList.getHeroes()
+  }
+
+  topHeroes: Hero[] = []
+
+
+
 
 }
