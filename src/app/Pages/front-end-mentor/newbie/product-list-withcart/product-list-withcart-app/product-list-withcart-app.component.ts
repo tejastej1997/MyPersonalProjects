@@ -1,14 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { GetProductDataService } from '../get-product-data.service';
 import { ProductDetail } from '../product-data';
 import { ImagesPathService } from '../../../../Shared/images-path.service';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog'
 import { OrderConfirmDialogComponent } from './order-confirm-dialog/order-confirm-dialog.component';
+import { Location } from '@angular/common';
+import {ButtonModule} from 'primeng/button'
 
 @Component({
   selector: 'app-product-list-withcart-app',
   standalone: true,
-  imports: [],
+  imports: [ButtonModule],
   providers: [DialogService],
   templateUrl: './product-list-withcart-app.component.html',
   styleUrl: './product-list-withcart-app.component.less'
@@ -16,7 +18,9 @@ import { OrderConfirmDialogComponent } from './order-confirm-dialog/order-confir
 export class ProductListWithcartAppComponent {
   itemList: ProductDetail[] = [];
   sectionVisible: number | null = null;
-  showQty: boolean = false
+  showQty: boolean = false;
+  readonly lastLocation = inject(Location)
+
 
   constructor(private data: GetProductDataService, private imagePath: ImagesPathService, public dialogservice: DialogService) {
     this.itemList = this.getData()
@@ -106,6 +110,10 @@ export class ProductListWithcartAppComponent {
       header: 'Order Confirmed',
       closable: true
     })
+  }
+
+  goback() {
+    this.lastLocation.back();
   }
 
 
