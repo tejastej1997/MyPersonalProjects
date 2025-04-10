@@ -1,4 +1,4 @@
-import { Component, Input, Output } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { HeaderComponent } from "./header/header.component";
 import { UserComponentComponent } from "./user-component/user-component.component";
 import { DUMMY_USERS } from './dummy-users';
@@ -12,11 +12,10 @@ import { DUMMY_USERS } from './dummy-users';
 })
 export class EmployeelistComponent {
 
-  userLength = DUMMY_USERS.length;
-   indexNumber !: number ;
+  users = DUMMY_USERS;
+  selectedUser(id: string) {
+    console.log(id);
 
-  changeUser() {
-    this.indexNumber = Math.floor(Math.random() * this.userLength)
   }
 
 }

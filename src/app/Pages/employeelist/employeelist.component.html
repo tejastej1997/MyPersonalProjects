@@ -6,7 +6,19 @@
             <main>
                 <ul id="users">
                     <li>
-                        <app-user-component />
+                        <app-user-component [userId]="users[0].id" (data)="selectedUser($event)" [name]="users[0].name" [avatar]="users[0].avatar" />
+                    </li>
+                    <li>
+                        <app-user-component [userId]="users[1].id" (data)="selectedUser($event)" [name]="users[1].name" [avatar]="users[1].avatar" />
+                    </li>
+                    <li>
+                        <app-user-component [userId]="users[2].id" (data)="selectedUser($event)" [name]="users[2].name" [avatar]="users[2].avatar"/>
+                    </li>
+                    <li>
+                        <app-user-component [userId]="users[3].id" (data)="selectedUser($event)" [name]="users[3].name" [avatar]="users[3].avatar"/>
+                    </li>
+                    <li>
+                        <app-user-component  [userId]="users[4].id" (data)="selectedUser($event)" [name]="users[4].name" [avatar]="users[4].avatar"/>
                     </li>
                 </ul>
             </main>
