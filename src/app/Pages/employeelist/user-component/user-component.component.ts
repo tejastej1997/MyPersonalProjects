@@ -24,7 +24,8 @@ export class UserComponentComponent {
   avatar = input.required<string>()
   name = input.required<string>()
   userId = input.required<string>()
-  @Output() data = new EventEmitter();
+
+  @Output() userid = new EventEmitter();
 
   imagePath = computed(() => 'assets/Images/02_EmployeeList/users/' + this.avatar())
 
@@ -43,10 +44,10 @@ export class UserComponentComponent {
     // const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length);
     // // this.users = DUMMY_USERS[randomIndex]
     // this.users.set(DUMMY_USERS[randomIndex])
+
+    this.userid.emit(this.userId())
   }
 
-  selectedUser() {
-    this.data.emit(this.userId())
-  }
+
 
 }
