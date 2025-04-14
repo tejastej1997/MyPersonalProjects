@@ -21,13 +21,20 @@ export class UserComponentComponent {
 
   // using signals 
 
-  avatar = input.required<string>()
-  name = input.required<string>()
-  userId = input.required<string>()
+  // avatar = input.required<string>()
+  // name = input.required<string>()
+  // userId = input.required<string>()
+
+  @Input({ required: true }) receivedDetails!: {
+    id: string,
+    avatar: string,
+    name: string
+  }
+  selected = input.required<boolean>()
 
   @Output() userid = new EventEmitter();
 
-  imagePath = computed(() => 'assets/Images/02_EmployeeList/users/' + this.avatar())
+  imagePath = computed(() => 'assets/Images/02_EmployeeList/users/' + this.receivedDetails.avatar)
 
   // public get imagePath(): string {
   //   return 'assets/Images/02_EmployeeList/users/' + this.avatar();
@@ -45,7 +52,7 @@ export class UserComponentComponent {
     // // this.users = DUMMY_USERS[randomIndex]
     // this.users.set(DUMMY_USERS[randomIndex])
 
-    this.userid.emit(this.userId())
+    this.userid.emit(this.receivedDetails.id)
   }
 
 

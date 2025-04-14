@@ -5,28 +5,22 @@
         <div class="employeelist__user">
             <main>
                 <ul id="users">
+                    @for (item of users; track $index) {
                     <li>
-                        <app-user-component [userId]="users[0].id" (userid)="selectedUser($event)"
-                            [name]="users[0].name" [avatar]="users[0].avatar" />
+                        <app-user-component [selected]="item.id === receivedId" [receivedDetails]="item"
+                            (userid)="selectedUser($event)" />
                     </li>
-                    <li>
-                        <app-user-component [userId]="users[1].id" (userid)="selectedUser($event)"
-                            [name]="users[1].name" [avatar]="users[1].avatar" />
-                    </li>
-                    <li>
-                        <app-user-component [userId]="users[2].id" (userid)="selectedUser($event)"
-                            [name]="users[2].name" [avatar]="users[2].avatar" />
-                    </li>
-                    <li>
-                        <app-user-component [userId]="users[3].id" (userid)="selectedUser($event)"
-                            [name]="users[3].name" [avatar]="users[3].avatar" />
-                    </li>
-                    <li>
-                        <app-user-component [userId]="users[4].id" (userid)="selectedUser($event)"
-                            [name]="users[4].name" [avatar]="users[4].avatar" />
-                    </li>
+                    }
+
                 </ul>
-                <app-tasks [userName]="selectedUserName" />
+
+                @if (selectedUserName) {
+                <app-tasks [userName]="selectedUserName" [id]="receivedId" />
+                }
+                @else {
+                <p>Please click on the user to get the details</p>
+                }
+
             </main>
         </div>
     </div>

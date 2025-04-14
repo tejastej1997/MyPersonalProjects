@@ -1,2 +1,16 @@
-<p>tasks works!</p>
-<p> {{userName()}} </p>
+<section id="tasks">
+    <header>
+        <h2>{{userName()}} 's tasks</h2>
+        <menu>
+            <button>Add Task</button>
+        </menu>
+    </header>
+
+    <ul>
+        @for (item of selectedTask(); track $index) {
+        <li>
+            <app-task [receivedData]="item" (passId)="completeTask($event)" />
+        </li>
+        }
+    </ul>
+</section>
