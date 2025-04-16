@@ -1,8 +1,13 @@
+@if (newTask) {
+<app-new-task (closeDialog)="closeDialog()" />
+
+}
 <section id="tasks">
+
     <header>
         <h2>{{userName()}} 's tasks</h2>
         <menu>
-            <button>Add Task</button>
+            <button (click)="newTask = true">Add Task</button>
         </menu>
     </header>
 

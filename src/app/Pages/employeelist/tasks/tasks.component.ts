@@ -1,5 +1,6 @@
 import { Component, input } from '@angular/core';
 import { TaskComponent } from "./task/task.component";
+import { NewTaskComponent } from "./new-task/new-task.component";
 
 type task = {
   id: string,
@@ -11,13 +12,14 @@ type task = {
 @Component({
   selector: 'app-tasks',
   standalone: true,
-  imports: [TaskComponent],
+  imports: [TaskComponent, NewTaskComponent],
   templateUrl: './tasks.component.html',
   styleUrl: './tasks.component.less'
 })
 export class TasksComponent {
   userName = input.required<string>()
   id = input.required<string>()
+  newTask : boolean = false;
 
   dummyTasks = [
     {
@@ -51,6 +53,10 @@ export class TasksComponent {
 
   completeTask(id: string | undefined) {
     this.dummyTasks = this.dummyTasks.filter((e) => e.id != id)
+  }
+
+  closeDialog(){
+    this.newTask = false;
   }
 
 }
