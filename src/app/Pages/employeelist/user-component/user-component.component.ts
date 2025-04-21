@@ -1,5 +1,6 @@
 import { Component, computed, EventEmitter, input, Input, Output, signal } from '@angular/core';
 import { DUMMY_USERS } from '../dummy-users';
+import { WrapperComponent } from "../shared/wrapper/wrapper.component";
 
 const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length);
 
@@ -7,7 +8,7 @@ const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length);
 @Component({
   selector: 'app-user-component',
   standalone: true,
-  imports: [],
+  imports: [WrapperComponent],
   templateUrl: './user-component.component.html',
   styleUrl: './user-component.component.less'
 })

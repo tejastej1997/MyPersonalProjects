@@ -1,6 +1,7 @@
 import { Component, input } from '@angular/core';
 import { TaskComponent } from "./task/task.component";
 import { NewTaskComponent } from "./new-task/new-task.component";
+import { TaskdetailsService } from '../shared/taskdetails.service';
 
 type task = {
   id: string,
@@ -19,43 +20,33 @@ type task = {
 export class TasksComponent {
   userName = input.required<string>()
   id = input.required<string>()
-  newTask : boolean = false;
+  newTask: boolean = false;
+  receivedData = "";
 
-  dummyTasks = [
-    {
-      id: 't1',
-      userId: 'u1',
-      title: 'Master Angular',
-      summary:
-        'Learn all the basic and advanced features of Angular & how to apply them.',
-      dueDate: '2025-12-31',
-    },
-    {
-      id: 't2',
-      userId: 'u3',
-      title: 'Build first prototype',
-      summary: 'Build a first prototype of the online shop website',
-      dueDate: '2024-05-31',
-    },
-    {
-      id: 't3',
-      userId: 'u3',
-      title: 'Prepare issue template',
-      summary:
-        'Prepare and describe an issue template which will help with project management',
-      dueDate: '2024-06-15',
-    },
-  ]
+  constructor(private dummyTasks: TaskdetailsService) { }
+
+
 
   selectedTask() {
-    return this.dummyTasks.filter((e) => e.userId == this.id())
+    return this.dummyTasks.getTask().filter((e) => e.userId == this.id())
   }
 
   completeTask(id: string | undefined) {
-    this.dummyTasks = this.dummyTasks.filter((e) => e.id != id)
+    this.dummyTasks.dummyTasks = this.dummyTasks.getTask().filter((e) => e.id != id)
   }
 
-  closeDialog(){
+  closeDialog() {
+    this.newTask = false;
+  }
+
+  createTask(receivedData: { title: string, summary: string, date: string }) {
+    this.dummyTasks.dummyTasks.push({
+      id: new Date().getDate().toString(),
+      userId: this.id(),
+      title: receivedData.title,
+      summary: receivedData.summary,
+      dueDate: receivedData.date
+    })
     this.newTask = false;
   }
 

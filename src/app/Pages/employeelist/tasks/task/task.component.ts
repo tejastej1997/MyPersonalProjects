@@ -1,9 +1,10 @@
 import { Component, input, output } from '@angular/core';
+import { WrapperComponent } from "../../shared/wrapper/wrapper.component";
 
 @Component({
   selector: 'app-task',
   standalone: true,
-  imports: [],
+  imports: [WrapperComponent],
   templateUrl: './task.component.html',
   styleUrl: './task.component.less'
 })

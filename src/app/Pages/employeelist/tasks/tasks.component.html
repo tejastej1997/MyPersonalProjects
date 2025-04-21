@@ -1,5 +1,5 @@
 @if (newTask) {
-<app-new-task (closeDialog)="closeDialog()" />
+<app-new-task (closeDialog)="closeDialog()" (formData)="createTask($event)" />
 
 }
 <section id="tasks">
