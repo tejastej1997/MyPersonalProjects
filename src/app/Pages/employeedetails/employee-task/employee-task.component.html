@@ -1,0 +1,10 @@
+<app-wrapper>
+    <article>
+        <h2> {{employeeTaskDetails().title}} </h2>
+        <time datetime=""> {{employeeTaskDetails().dueDate | date:'longDate'}} </time>
+        <p> {{employeeTaskDetails().summary}} </p>
+        <p class="actions">
+            <button (click)="sendId(employeeTaskDetails().userId)">Complete</button>
+        </p>
+    </article>
+</app-wrapper>

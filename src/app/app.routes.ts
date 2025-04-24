@@ -8,6 +8,7 @@ import { FrontEndMentorComponent } from './Pages/front-end-mentor/front-end-ment
 import { NewbieComponent } from './Pages/front-end-mentor/newbie/newbie.component';
 import { ProductListWithcartComponent } from './Pages/front-end-mentor/newbie/product-list-withcart/product-list-withcart.component';
 import { ProductListWithcartAppComponent } from './Pages/front-end-mentor/newbie/product-list-withcart/product-list-withcart-app/product-list-withcart-app.component';
+import { EmployeedetailsComponent } from './Pages/employeedetails/employeedetails.component';
 
 
 
@@ -27,7 +28,7 @@ export const routes: Routes = [
     },
     { path: 'productlist', component: ProductListWithcartComponent },
     { path: 'productlistwithcart', component: ProductListWithcartAppComponent },
-   
+    { path: 'employeedetails', component: EmployeedetailsComponent },
 
     { path: '**', component: PageNotFoundComponent },
 ];
