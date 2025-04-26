@@ -34,7 +34,9 @@ export class TaskdetailsService {
     },
   ]
 
+
   get taskDetails(): usertasks[] {
+   
     return this.userTasks;
   }
 }
