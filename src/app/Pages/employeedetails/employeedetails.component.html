@@ -1,0 +1,36 @@
+
+<div class="employeedetails">
+    <div class="employeedetails__inner flex">
+        <app-header></app-header>
+
+        <div class="employeelist__user">
+            <main>
+                <ul id="users">
+                    @for (item of employeeInfo; track $index) {
+                    <li>
+                        <app-employeelist [employeeDetails]="item" (click)="receivedId(item.id)"></app-employeelist>
+                    </li>
+                    }
+
+                </ul>
+
+                @if (selectedId != '') {
+                <app-userdetails [receivedId]="selectedId" [userName]="selectedUserName"></app-userdetails>
+                }
+                @else{
+                <p>Please click on the user to get the details</p>
+
+                }
+
+
+                <!-- @if (selectedUserName) {
+                <app-tasks [userName]="selectedUserName" [id]="receivedId" />
+                }
+                @else {
+                <p>Please click on the user to get the details</p>
+                } -->
+
+            </main>
+        </div>
+    </div>
+</div>

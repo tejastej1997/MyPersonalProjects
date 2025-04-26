@@ -2,36 +2,42 @@
     <div class="order-confirmation__inner">
         <img [src]="imagesPath + 'assets/images/icon-order-confirmed.svg'" alt="">
 
+        <h3 class="order-confirmation__heading">Order Confirmed</h3>
+
         <p class="order-confirmation-tagline">We hope you enjoy your food !</p>
 
-        <div class="order-confirmation__container">
-            <ul class="order-confirmation__list">
 
-                @for (item of receivedCartList; track $index) {
-                <li class="order-confirmation__item">
+        <ul class="order-confirmation__list">
+            @for (item of cartItems; track $index) {
+            <li class="order-confirmation__item">
+                <img [src]="item.image.thumbnail" alt="" class="order-confirmation__img">
 
-                    <div class="order-confirmation__container">
-                        <div class="order-confirmation__name"> {{item.name}} </div>
-                        <div class="order-confirmation__details">
-                            <div class="order-confirmation__qty">
-                                {{item.quantity}}
-                            </div>
-                            <div class="order-confirmation__price">
-                                {{item.price}}
-                            </div>
+                <div class="order-confirmation__content">
+                    <div class="order-confirmation__name"> {{item.name}} </div>
+                    <div class="order-confirmation__details">
+                        <div class="order-confirmation__qty">
+                            {{item.quantity + 'x'}}
                         </div>
-                        <div class="order-confirmation__total">
-
+                        <div class="order-confirmation__price">
+                            {{ '@' + item.price}}
                         </div>
                     </div>
-                </li>
 
-                }
+                </div>
+                <div class="order-confirmation__total">
+                    {{ '$' + item.quantity * item.price}}
+                </div>
+            </li>
 
+            }
 
-            </ul>
-        </div>
-        <button class="product-list-withcart-app__cart-confirm">
+            <div class="order-confirmation__total-sum">
+                <span class="order-confirmation__total-sum-text"> Order Total</span>
+                <span class="order-confirmation__total-sum-sum"> {{getSum()}} </span>
+            </div>
+        </ul>
+
+        <button class="order-confirmation__confirm-btn" (click)="closeDialog()">
             Start New Order
         </button>
     </div>

@@ -1,0 +1,7 @@
+<app-wrapper>
+    <button [class.active]="selected()" (click)="getEmployeeInfo()">
+        <img [src]=" imagePath()" [alt]="receivedDetails.name">
+        <span> {{receivedDetails.name}} </span>
+
+    </button>
+</app-wrapper>

@@ -1,7 +1,9 @@
-
 <div class="dashboard">
     <div class="dashboard__inner container">
-        <p>dashboard works!</p>
-
+        <ul>
+            @for (item of topHeroes; track $index) {
+            <li> {{item.name}} </li>
+            }
+        </ul>
     </div>
 </div>

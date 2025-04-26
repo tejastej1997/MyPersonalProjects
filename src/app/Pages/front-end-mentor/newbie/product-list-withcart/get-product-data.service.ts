@@ -10,7 +10,18 @@ export class GetProductDataService {
   constructor() {
   }
 
+  cartItems: ProductDetail[] = [];
+
   getProductData(): ProductDetail[] {
     return productData.productDetails;
   }
+
+
+  getCartitem(receivedData: ProductDetail): ProductDetail[] {
+    this.cartItems.push(receivedData);
+    console.log(this.cartItems);
+    
+    return this.cartItems;
+  }
+
 }

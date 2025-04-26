@@ -1,0 +1,12 @@
+
+<app-wrapper>
+    <article>
+        <h2> {{receivedData()?.title}} </h2>
+        <time datetime=""> {{receivedData()?.dueDate}} </time>
+        <p> {{receivedData()?.summary}} </p>
+        <p class="actions">
+            <button (click)="sendId()">Complete</button>
+        </p>
+    </article>
+</app-wrapper>
+
