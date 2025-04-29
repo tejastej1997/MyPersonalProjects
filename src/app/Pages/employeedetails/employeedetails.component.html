@@ -2,7 +2,6 @@
     <div class="employeedetails__inner flex">
         <app-header></app-header>
 
-        
         <div class="employeelist__user">
             <main>
                 <ul id="users">
@@ -11,7 +10,8 @@
                         <app-employeelist [employeeDetails]="item" (click)="receivedId(item.id)"></app-employeelist>
                     </li>
                     }
-                    <button class="addbutton" >Add more employees</button>
+
+                    <button class="addbutton" (click)="addemployees()" >Add more employees</button>
 
                 </ul>
 
@@ -27,3 +27,7 @@
         </div>
     </div>
 </div>
+
+@if (openDialog) {
+<app-add-new-employees (closeDialog)="closeDialog()" ></app-add-new-employees>
+}
