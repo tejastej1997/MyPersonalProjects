@@ -17,7 +17,6 @@ export class NewTaskComponent {
   closeDialog = output();
   getUserId = input.required<string>();
 
-
   enteredTitle: string = ''
   enteredSummary: string = ''
   enteredDuedate: string = '';
@@ -36,8 +35,6 @@ export class NewTaskComponent {
       dueDate: this.enteredDuedate.toString()
     })
     this.onClose();
-    console.log(this.taskDetails.taskDetails);
-
     return this.taskDetails.taskDetails
 
   }
