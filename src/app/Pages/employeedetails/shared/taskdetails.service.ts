@@ -6,7 +6,13 @@ import { usertasks } from './commoninterface';
 })
 export class TaskdetailsService {
 
-  constructor() { }
+  constructor() {
+    const tasks = localStorage.getItem('getTasks')
+
+    if (tasks) {
+      this.userTasks = JSON.parse(tasks);
+    }
+  }
 
   userTasks = [
     {
@@ -35,8 +41,8 @@ export class TaskdetailsService {
   ]
 
 
+
   get taskDetails(): usertasks[] {
-   
     return this.userTasks;
   }
 }
