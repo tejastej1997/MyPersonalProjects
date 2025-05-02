@@ -1,6 +1,6 @@
 import { Component, inject, input } from '@angular/core';
 import { EmployeelistService } from '../shared/employeelist.service';
-import { WrapperComponent } from "../../employeelist/shared/wrapper/wrapper.component";
+import { WrapperComponent } from "../shared/wrapper/wrapper.component";
 import { employeedetails } from '../shared/commoninterface';
 
 @Component({

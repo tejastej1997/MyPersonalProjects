@@ -1,6 +1,6 @@
 import { Component, input, output } from '@angular/core';
 import { usertasks } from '../shared/commoninterface';
-import { WrapperComponent } from "../../employeelist/shared/wrapper/wrapper.component";
+import { WrapperComponent } from "../shared/wrapper/wrapper.component";
 import { DatePipe } from '@angular/common';
 
 @Component({
