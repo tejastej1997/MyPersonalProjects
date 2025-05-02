@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { usertasks } from './commoninterface';
+import { json } from 'express';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TaskdetailsService {
 
-  constructor() { }
 
   userTasks = [
     {
@@ -34,9 +34,19 @@ export class TaskdetailsService {
     },
   ]
 
+  constructor() {
+    const userTaskdetails = localStorage.getItem('userTasks')
+    if (userTaskdetails) {
+      this.userTasks = JSON.parse(userTaskdetails);
+    }
+  }
 
   get taskDetails(): usertasks[] {
-   
+    this.saveTasks()
     return this.userTasks;
+  }
+
+  saveTasks() {
+    localStorage.setItem('userTasks', JSON.stringify(this.userTasks))
   }
 }

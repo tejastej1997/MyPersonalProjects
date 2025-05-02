@@ -1,4 +1,3 @@
-
 <div class="employeedetails">
     <div class="employeedetails__inner flex">
         <app-header></app-header>
@@ -12,6 +11,8 @@
                     </li>
                     }
 
+                    <button class="addbutton" (click)="addemployees()" >Add more employees</button>
+
                 </ul>
 
                 @if (selectedId != '') {
@@ -22,15 +23,11 @@
 
                 }
 
-
-                <!-- @if (selectedUserName) {
-                <app-tasks [userName]="selectedUserName" [id]="receivedId" />
-                }
-                @else {
-                <p>Please click on the user to get the details</p>
-                } -->
-
             </main>
         </div>
     </div>
 </div>
+
+@if (openDialog) {
+<app-add-new-employees (closeDialog)="closeDialog()" ></app-add-new-employees>
+}

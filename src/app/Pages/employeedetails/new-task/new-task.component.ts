@@ -15,7 +15,7 @@ export class NewTaskComponent {
   private taskDetails = inject(TaskdetailsService)
 
   closeDialog = output();
-  getUserId = input.required<string>()
+  getUserId = input.required<string>();
 
   enteredTitle: string = ''
   enteredSummary: string = ''
@@ -28,7 +28,7 @@ export class NewTaskComponent {
 
   onSubmit(): usertasks[] {
     this.taskDetails.taskDetails.push({
-      id: '',
+      id: Date.now().toString(),
       userId: this.getUserId(),
       title: this.enteredTitle,
       summary: this.enteredSummary,

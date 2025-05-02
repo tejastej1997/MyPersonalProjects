@@ -14,8 +14,6 @@ import { NewTaskComponent } from "../../employeedetails/new-task/new-task.compon
 export class UserdetailsComponent {
 
   constructor() {
-
-
   }
 
   receivedId = input.required<string>()
@@ -33,8 +31,11 @@ export class UserdetailsComponent {
   }
 
   completedTaskId(id: string) {
-    const index = this.userTaskDetails.taskDetails.findIndex(_ => _.userId == id)
-    this.userTaskDetails.taskDetails.splice(index, 1);
+    // const index = this.userTaskDetails.taskDetails.findIndex(_ => _.id === id);
+    // this.userTaskDetails.taskDetails.splice(index, 1);
+    this.userTaskDetails.userTasks = this.userTaskDetails.taskDetails.filter(_ => _.id != id)
+
+
   }
 
   addTask(): boolean {

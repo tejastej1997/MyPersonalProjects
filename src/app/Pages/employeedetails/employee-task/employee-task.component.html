@@ -4,7 +4,7 @@
         <time datetime=""> {{employeeTaskDetails().dueDate | date:'longDate'}} </time>
         <p> {{employeeTaskDetails().summary}} </p>
         <p class="actions">
-            <button (click)="sendId(employeeTaskDetails().userId)">Complete</button>
+            <button (click)="sendId(employeeTaskDetails().id)">Complete</button>
         </p>
     </article>
 </app-wrapper>
