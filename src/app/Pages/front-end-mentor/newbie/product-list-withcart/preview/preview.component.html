@@ -1,6 +1,8 @@
 <div class="preview">
     <div class="preview__inner">
         <markdown class="preview__container" [data]="projectText"></markdown>
-        <markdown class="preview__container" [data]="receivedOutput"></markdown>
+        <markdown class="preview__container" [data]="data"></markdown>
     </div>
+
+    <a [routerLink]="projectPath" class="preview__open-link" (click)="closeModal()"> Click here to see project</a>
 </div>
