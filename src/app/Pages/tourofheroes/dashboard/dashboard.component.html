@@ -1,9 +1,15 @@
 <div class="dashboard">
     <div class="dashboard__inner container">
-        <ul>
+        <ul class="dashboard__container">
             @for (item of topHeroes; track $index) {
-            <li> {{item.name}} </li>
+            <li class="dashboard__item">
+                <button (click)="getInfo(item.id)"> {{item.name | uppercase }}</button>
+            </li>
             }
         </ul>
+
+        @if (show) {
+        <app-dashboard-details [getUserInfo]="getUserInfo"></app-dashboard-details>
+        }
     </div>
 </div>

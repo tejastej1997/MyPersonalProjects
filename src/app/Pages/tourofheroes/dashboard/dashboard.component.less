@@ -1,0 +1,36 @@
+.dashboard {
+    &__inner {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    &__container {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 24px;
+    }
+
+    &__item {
+
+        button {
+            color: black;
+            transition: 0.25s all;
+            font-size: 20px;
+            font-weight: 600;
+            padding: 32px 24px;
+            border: 1px solid black;
+            border-radius: 8px;
+
+        }
+
+        &:hover {
+            button {
+                background: black;
+                color: white;
+            }
+
+        }
+    }
+}
