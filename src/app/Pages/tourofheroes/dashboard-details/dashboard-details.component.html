@@ -1,0 +1,18 @@
+<div class="dashboard-details">
+    <div class="dashboard-details__inner">
+        <ul class="dashboard-details__container">
+            @for (item of getUserInfo(); track $index) {
+            <li class="dashboard-details__item">
+                <span> {{item.id}} </span>
+                <span> {{item.name}} </span>
+                <button>Edit</button>
+            </li>
+            }
+        </ul>
+        <ul>
+            <li>
+                <input type="text" [(ngModel)]="getUserInfo()[0].name">
+            </li>
+        </ul>
+    </div>
+</div>
