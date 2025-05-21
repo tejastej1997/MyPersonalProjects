@@ -9,6 +9,7 @@ import { ProductListWithcartComponent } from './Pages/front-end-mentor/newbie/pr
 import { ProductListWithcartAppComponent } from './Pages/front-end-mentor/newbie/product-list-withcart/product-list-withcart-app/product-list-withcart-app.component';
 import { EmployeedetailsComponent } from './Pages/employeedetails/employeedetails.component';
 import { PasswordgeneratorComponent } from './Pages/front-end-mentor/intermediate/passwordgenerator/passwordgenerator.component';
+import { OtpGeneratorComponent } from './Pages/front-end-mentor/newbie/otp-generator/otp-generator.component';
 
 
 
@@ -29,6 +30,7 @@ export const routes: Routes = [
     { path: 'productlistwithcart', component: ProductListWithcartAppComponent },
     { path: 'employeedetails', component: EmployeedetailsComponent },
     { path: 'passwordgenerator', component: PasswordgeneratorComponent },
+    { path: 'otpgenerator', component: OtpGeneratorComponent },
 
     { path: '**', component: PageNotFoundComponent },
 ];
