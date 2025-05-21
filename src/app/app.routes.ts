@@ -8,6 +8,7 @@ import { NewbieComponent } from './Pages/front-end-mentor/newbie/newbie.componen
 import { ProductListWithcartComponent } from './Pages/front-end-mentor/newbie/product-list-withcart/product-list-withcart.component';
 import { ProductListWithcartAppComponent } from './Pages/front-end-mentor/newbie/product-list-withcart/product-list-withcart-app/product-list-withcart-app.component';
 import { EmployeedetailsComponent } from './Pages/employeedetails/employeedetails.component';
+import { PasswordgeneratorComponent } from './Pages/front-end-mentor/intermediate/passwordgenerator/passwordgenerator.component';
 
 
 
@@ -27,6 +28,7 @@ export const routes: Routes = [
     { path: 'productlist', component: ProductListWithcartComponent },
     { path: 'productlistwithcart', component: ProductListWithcartAppComponent },
     { path: 'employeedetails', component: EmployeedetailsComponent },
+    { path: 'passwordgenerator', component: PasswordgeneratorComponent },
 
     { path: '**', component: PageNotFoundComponent },
 ];
