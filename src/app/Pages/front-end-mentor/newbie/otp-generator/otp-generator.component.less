@@ -1,4 +1,9 @@
 .otp-generator {
+    height: ~'calc(100vh - 49px)';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     &__inner {
         max-width: 500px;
         margin: auto;
@@ -24,7 +29,8 @@
     &__container {
         display: flex;
         gap: 24px;
-        margin: 24px 0;
+        margin-top: 24px;
+        flex-direction: column;
     }
 
     &__text {
@@ -36,6 +42,8 @@
 
     &__digits-number {
         color: white;
+        display: flex;
+        gap: 12px;
     }
 
     &__details {
@@ -51,8 +59,6 @@
     &__submit {
         padding: 12px;
         color: white;
-        width: 75%;
-        margin: auto;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -60,6 +66,7 @@
         border: 1px solid white;
         border-radius: 12px;
         transition: 0.25s all;
+        max-width: 50%;
 
         &:hover,
         &.sidearm-hover,
@@ -71,6 +78,29 @@
     &__otp {
         color: white;
         font-size: 22px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+
+        span {
+            border: 3px solid white;
+            border-radius: 5px;
+            cursor: pointer;
+            padding: 12px 24px;
+            transition: 0.25s all;
+            animation: border 1s infinite ease-in-out;
+            color: black;
+
+
+            &:hover,
+            &.sidearm-hover,
+            &:focus {
+                background: white;
+                color: black;
+                animation: none;
+            }
+
+        }
     }
 
     &__copy {
@@ -87,6 +117,48 @@
             background: white;
             color: black;
         }
+    }
+
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        width: 100%;
+    }
+
+    &__item {
+        flex: 1 1 25%;
+    }
+
+    &__btn {
+        width: 100%;
+        color: white;
+        font-size: 22px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid white;
+        padding: 5px;
+        border-radius: 4px;
+        transition: 0.25s all;
+
+        &:hover,
+        &.sidearm-hover,
+        &:focus {
+            background: white;
+            color: black;
+        }
+    }
+
+    &__info {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+    }
+
+    &__tag {
+        color: white;
     }
 }
 
@@ -106,4 +178,15 @@ input[type=range] {
     width: 100%;
     border-radius: 4px;
     position: relative;
+}
+
+
+@keyframes border {
+    0% {
+        background: white;
+    }
+
+    100% {
+        background: #e0e0e0;
+    }
 }

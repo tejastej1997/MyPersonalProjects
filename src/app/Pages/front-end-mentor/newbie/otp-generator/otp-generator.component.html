@@ -2,25 +2,36 @@
     <div class="otp-generator__inner">
         <h1 class="otp-generator__heading">OTP-generator !</h1>
         <div class="otp-generator__header ">
-            <div class="otp-generator__text">Please Move pointer to select number of digit to get as <b>OTP</b></div>
+            <div class="otp-generator__text">Please clink on number to select number of digit to get as <b>OTP</b></div>
         </div>
         <div class="otp-generator__container">
-            <input type="range" name="" step="1" min="4" max="10" id="range" (change)="display = true"
-                [(ngModel)]="range">
+            <ul class="otp-generator__list">
+                @for (item of optLength; track $index) {
+                <li class="otp-generator__item">
+                    <button class="otp-generator__btn" value="{{item}}" (click)="getValue(item)"> {{item}} </button>
+                </li>
+                }
+            </ul>
+
             @if (display) {
-            <div class="otp-generator__digits-number">{{range}} </div>
+            <div class="otp-generator__info">
+                <div class="otp-generator__digits-number"> The Selected number is <span> <b> {{range}}</b></span> </div>
+                <button class="otp-generator__submit" (click)="generateOtp()">Generate Otp</button>
+
+            </div>
             }
         </div>
 
-        @if (display) {
-        <button class="otp-generator__submit" (click)="generateOtp()">Generate Otp</button>
-        }
+
         @if (otpDisplay) {
         <div class="otp-generator__details">
-            <H3 class="otp-generator__otp"> Your {{range}} digit generated Otp is: <span> <b> {{value}}</b></span> </H3>
-            <button class="otp-generator__copy" (click)="copyText(value)">Copy</button>
+            <H3 class="otp-generator__otp"> Your {{range}} digit generated Otp is: <span (click)="copyText(value)"> <b>
+                        {{value}}</b></span> </H3>
+            <h4 class="otp-generator__tag">Your <b>OTP</b> is valid till {{displayTime}} Secs </h4>
         </div>
         }
 
     </div>
 </div>
+
+<app-toast [inputData]="toastDiaplay" [otp]="value" />

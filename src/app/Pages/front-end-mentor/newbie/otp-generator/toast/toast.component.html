@@ -1,0 +1,9 @@
+@if (inputData()) {
+<div class="toast">
+    <div class="toast__inner">
+        <p>OTP copied Successfully!</p>
+        <p>OTP is {{otp()}} </p>
+        <button (click)="closeToast()" >Cancel</button>
+    </div>
+</div>
+}
