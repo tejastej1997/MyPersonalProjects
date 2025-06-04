@@ -13,13 +13,13 @@
                 }
             </ul>
 
-            @if (display) {
-            <div class="otp-generator__info">
+         
+            <div class="otp-generator__info" [class.visible]="display">
                 <div class="otp-generator__digits-number"> The Selected number is <span> <b> {{range}}</b></span> </div>
                 <button class="otp-generator__submit" (click)="generateOtp()">Generate Otp</button>
 
             </div>
-            }
+          
         </div>
 
 

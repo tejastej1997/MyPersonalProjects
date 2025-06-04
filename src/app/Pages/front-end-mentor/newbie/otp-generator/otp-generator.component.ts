@@ -21,6 +21,7 @@ export class OtpGeneratorComponent {
   outTime: number = 30;
   displayTime: number = this.outTime;
   toastDiaplay: boolean = false;
+  intervalId: any;
 
   ngOnInit() {
 
@@ -32,7 +33,7 @@ export class OtpGeneratorComponent {
     this.value = this.variable.toString().split('.').join('').slice(0, this.range);
     this.otpDisplay = true;
 
-    setInterval(() => {
+    this.intervalId = setInterval(() => {
       if (this.displayTime > 0) {
         this.displayTime--;
       }
@@ -49,6 +50,7 @@ export class OtpGeneratorComponent {
   getValue(value: number) {
     this.range = value;
     this.display = true;
+    clearInterval(this.intervalId)
   }
 
   copyText(text: string) {
@@ -56,6 +58,7 @@ export class OtpGeneratorComponent {
       this.display = false,
         this.otpDisplay = false;
       this.toastDiaplay = true;
+      clearInterval(this.intervalId);
 
     }).catch((err) => {
       console.log(err);

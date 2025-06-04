@@ -1,3 +1,7 @@
+@background : #4C8155;
+@txtColor : #ffffff;
+
+
 .otp-generator {
     height: ~'calc(100vh - 49px)';
     display: flex;
@@ -8,7 +12,7 @@
         max-width: 500px;
         margin: auto;
         padding: 24px;
-        background: rgba(0, 0, 0, 0.8);
+        background: @background;
         border-radius: 12px;
     }
 
@@ -20,7 +24,7 @@
     }
 
     &__heading {
-        color: white;
+        color: @txtColor;
         text-align: center;
         font-size: 25px;
 
@@ -41,7 +45,7 @@
     }
 
     &__digits-number {
-        color: white;
+        color: @txtColor;
         display: flex;
         gap: 12px;
     }
@@ -138,7 +142,7 @@
         justify-content: center;
         align-items: center;
         border: 1px solid white;
-        padding: 5px;
+        padding: 10px;
         border-radius: 4px;
         transition: 0.25s all;
 
@@ -151,10 +155,17 @@
     }
 
     &__info {
-        display: flex;
         align-items: center;
         justify-content: space-between;
         gap: 16px;
+        opacity: 0;
+        transition: 0.5s all;
+        display: none;
+
+        &.visible {
+            opacity: 1;
+            display: flex;
+        }
     }
 
     &__tag {
