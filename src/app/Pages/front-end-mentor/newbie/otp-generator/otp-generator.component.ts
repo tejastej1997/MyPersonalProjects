@@ -32,6 +32,7 @@ export class OtpGeneratorComponent {
     this.variable = Math.random()
     this.value = this.variable.toString().split('.').join('').slice(0, this.range);
     this.otpDisplay = true;
+    this.displayTime = 30;
 
     this.intervalId = setInterval(() => {
       if (this.displayTime > 0) {

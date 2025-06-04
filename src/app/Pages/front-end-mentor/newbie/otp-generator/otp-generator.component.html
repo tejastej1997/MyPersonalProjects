@@ -13,18 +13,20 @@
                 }
             </ul>
 
-         
+            @if (display) {
             <div class="otp-generator__info" [class.visible]="display">
                 <div class="otp-generator__digits-number"> The Selected number is <span> <b> {{range}}</b></span> </div>
                 <button class="otp-generator__submit" (click)="generateOtp()">Generate Otp</button>
 
             </div>
-          
+            }
+
+
         </div>
 
 
         @if (otpDisplay) {
-        <div class="otp-generator__details">
+        <div class="otp-generator__details" [class.visible]="otpDisplay">
             <H3 class="otp-generator__otp"> Your {{range}} digit generated Otp is: <span (click)="copyText(value)"> <b>
                         {{value}}</b></span> </H3>
             <h4 class="otp-generator__tag">Your <b>OTP</b> is valid till {{displayTime}} Secs </h4>

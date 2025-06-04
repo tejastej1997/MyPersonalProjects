@@ -58,6 +58,18 @@
         justify-content: space-between;
         margin-top: 24px;
         text-align: center;
+        height: 0px;
+        transition: 0.5s all;
+        opacity: 0;
+
+        &.visible {
+            height: 148px;
+            opacity: 1;
+
+            .otp-generator__otp {
+                height: 102px;
+            }
+        }
     }
 
     &__submit {
@@ -75,7 +87,7 @@
         &:hover,
         &.sidearm-hover,
         &:focus {
-            background: black;
+            background: rgba(0, 0, 0, 0.1);
         }
     }
 
@@ -85,6 +97,8 @@
         display: flex;
         flex-direction: column;
         gap: 12px;
+        height: 0px;
+        transition: 0.5s all;
 
         span {
             border: 3px solid white;
@@ -159,12 +173,13 @@
         justify-content: space-between;
         gap: 16px;
         opacity: 0;
+        display: flex;
+        height: 0;
         transition: 0.5s all;
-        display: none;
 
         &.visible {
             opacity: 1;
-            display: flex;
+            height: 47px;
         }
     }
 
